@@ -35,7 +35,6 @@ public class Roaster implements Generator {
     }
 
     @Override
-    @SuppressWarnings("ConstantConditions")
     public void generate() {
         generated = new File(project.getBasedir() + "/target/generated-sources/codegen/");
 
@@ -44,7 +43,6 @@ public class Roaster implements Generator {
         emitHelloWorld(new File(generated, "com/antwerkz/generated/HelloWorld.java"));
     }
 
-    @Deprecated
     private void emitHelloWorld(File outputFile) {
         builder = create(JavaClassSource.class)
                       .setName("HelloWorld")
