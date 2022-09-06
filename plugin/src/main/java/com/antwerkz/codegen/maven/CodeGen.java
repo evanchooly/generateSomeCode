@@ -36,12 +36,11 @@ public class CodeGen extends AbstractMojo {
     private MavenProject project;
 
     @Parameter(name = "generator", required = true, readonly = true)
-    private String generator;
+    private GeneratorType type;
 
     @Override
     public void execute() {
-        Generator generator = new Roaster(project);
-
-        generator.generate();
+        type.create(project)
+            .generate();
     }
 }

@@ -8,14 +8,10 @@ import org.jboss.forge.roaster.model.source.JavaDocSource;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.annotation.Documented;
 import java.util.Objects;
 
 import static java.lang.String.format;
 import static org.jboss.forge.roaster.Roaster.create;
-
-;
-;
 
 public class Roaster implements Generator {
     private JavaClassSource builder;
