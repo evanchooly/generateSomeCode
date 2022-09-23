@@ -39,6 +39,7 @@ public class Roaster implements Generator {
                       .setPackage("com.antwerkz.generated");
 
         builder.addImport(Objects.class);
+        builder.addImport(SuppressWarnings.class);
 
         builder.addAnnotation("jdk.jfr.Enabled");
         builder.addAnnotation("SuppressWarnings")  // can also use String name
@@ -59,11 +60,11 @@ public class Roaster implements Generator {
             .setStringValue("value", "Inigo Montoya");
 
         builder.addMethod()
-               .setPrivate()
+               .setPublic()
                .setName("greeting")
                .setReturnType(String.class)
                .setBody("""
-                   return "Hello, world!";
+                   return "Hello world!";
                    """);
 
         output(outputFile);

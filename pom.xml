@@ -17,6 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
+        <javapoet.version>1.13.0</javapoet.version>
         <maven.version>3.8.6</maven.version>
         <roaster.version>2.26.0.Final</roaster.version>
     </properties>
@@ -89,5 +90,6 @@
     <modules>
         <module>plugin</module>
         <module>roaster</module>
+        <module>javapoet</module>
     </modules>
 </project>

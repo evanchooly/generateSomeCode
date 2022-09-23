@@ -35,12 +35,12 @@ public class CodeGen extends AbstractMojo {
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     private MavenProject project;
 
-    @Parameter(name = "generator", required = true, readonly = true)
-    private GeneratorType type;
+    @Parameter(name = "generator", required = true)
+    private GeneratorType generator;
 
     @Override
     public void execute() {
-        type.create(project)
+        generator.create(project)
             .generate();
     }
 }
