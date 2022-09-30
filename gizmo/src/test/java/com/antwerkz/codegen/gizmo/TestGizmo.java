@@ -1,10 +1,10 @@
-package com.antwerkz.codegen.roaster;
+package com.antwerkz.codegen.gizmo;
 
 import com.antwerkz.generated.HelloWorld;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestRoaster {
+public class TestGizmo {
     @Test
     public void testHello() {
         HelloWorld hello = new HelloWorld();
