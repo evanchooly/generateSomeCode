@@ -64,19 +64,14 @@ public class Gizmo implements Generator {
 
             // call greeting()
             MethodDescriptor greeting = ofMethod("com.antwerkz.generated.HelloWorld", "greeting", String.class);
-            System.out.println("greeting = " + greeting);
             var greetingCall = methodCreator.invokeVirtualMethod(greeting, methodCreator.getThis());
 
 
             // print it
             FieldDescriptor out = FieldDescriptor.of(System.class, "out", PrintStream.class);
-            System.out.println("out = " + out);
 
             var field = methodCreator.readStaticField(out);
-            System.out.println("field = " + field);
             MethodDescriptor println = ofMethod(PrintStream.class, "println", void.class, String.class);
-
-            System.out.println("println = " + println);
 
             methodCreator.invokeVirtualMethod(println, field, greetingCall);
 
