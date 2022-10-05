@@ -7,4 +7,9 @@ on:
 
 jobs:
   Build:
+    strategy:
+      matrix:
+        generator: [ roaster, javapoet, gizmo ]
     uses: evanchooly/workflows/.github/workflows/pull-request.yml@master
+    with:
+      maven-flags: -Dgenerator=${{ matrix.generator }}
