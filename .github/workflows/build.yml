@@ -11,4 +11,5 @@ jobs:
         generator: [ roaster, javapoet, gizmo ]
     uses: evanchooly/workflows/.github/workflows/build.yml@master
     with:
+      java: 17
       maven-flags: -Dgenerator=${{ matrix.generator }}
