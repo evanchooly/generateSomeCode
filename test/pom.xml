@@ -29,7 +29,7 @@
 <!--                            <generator>javapoet</generator>-->
 <!--                            <generator>roaster</generator>-->
 <!--                            <generator>gizmo</generator>-->
-                            <generator>bytebuddy</generator>
+<!--                            <generator>bytebuddy</generator>-->
                         </configuration>
                     </execution>
                 </executions>
@@ -41,6 +41,16 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.3</version>
         </dependency>
     </dependencies>
 </project>

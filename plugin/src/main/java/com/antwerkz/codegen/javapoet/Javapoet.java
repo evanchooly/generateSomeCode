@@ -27,6 +27,7 @@ public class Javapoet implements Generator {
     private MavenProject project;
 
     public Javapoet(MavenProject project) {
+        System.out.println("Generating using Javapoet");
         this.project = project;
     }
 

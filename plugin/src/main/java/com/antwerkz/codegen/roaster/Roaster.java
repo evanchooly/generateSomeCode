@@ -21,6 +21,7 @@ public class Roaster implements Generator {
     private MavenProject project;
 
     public Roaster(MavenProject project) {
+        System.out.println("Generating using Roaster");
         this.project = project;
     }
 

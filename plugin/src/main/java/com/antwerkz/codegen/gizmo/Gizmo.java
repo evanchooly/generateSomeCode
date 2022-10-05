@@ -26,6 +26,7 @@ public class Gizmo implements Generator {
     private MavenProject project;
 
     public Gizmo(MavenProject project) {
+        System.out.println("Generating using Gizmo");
         this.project = project;
     }
 

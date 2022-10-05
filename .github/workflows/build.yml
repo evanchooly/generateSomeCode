@@ -1,0 +1,9 @@
+name: Build Project
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    uses: evanchooly/workflows/.github/workflows/build.yml@master

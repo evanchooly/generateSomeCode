@@ -24,6 +24,7 @@ public class ByteBuddyGenerator implements Generator {
     private MavenProject project;
 
     public ByteBuddyGenerator(MavenProject project) {
+        System.out.println("Generating using ByteBuddy");
         this.project = project;
     }
 
@@ -36,8 +37,8 @@ public class ByteBuddyGenerator implements Generator {
         helloworld = helloworld.defineMethod("greeting", String.class, PUBLIC)
                       .intercept(FixedValue.value("Hello world!"));
 
-        helloworld = helloworld.defineMethod("greet", void.class, PUBLIC)
-                               .intercept(new Compound(new MethodCall()));
+//        helloworld = helloworld.defineMethod("greet", void.class, PUBLIC)
+//                               .intercept(new Compound(new MethodCall()));
 
         write(helloworld.make().getBytes());
     }
