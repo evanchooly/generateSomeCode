@@ -25,12 +25,6 @@
                             <goal>codegen</goal>
                         </goals>
                         <phase>generate-sources</phase>
-                        <configuration>
-<!--                            <generator>javapoet</generator>-->
-<!--                            <generator>roaster</generator>-->
-<!--                            <generator>gizmo</generator>-->
-<!--                            <generator>bytebuddy</generator>-->
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

@@ -80,10 +80,10 @@ public class Gizmo implements Generator {
         }
     }
 
-    private static class DemoClassOutput implements ClassOutput {
+    private class DemoClassOutput implements ClassOutput {
         @Override
         public void write(String s, byte[] bytes) {
-            File file = new File("target/classes", s + ".class");
+            File file = new File(project.getBasedir(),"target/classes/" + s + ".class");
             file.getParentFile().mkdirs();
             try (FileOutputStream stream = new FileOutputStream(file)) {
                 stream.write(bytes);
