@@ -1,4 +1,4 @@
-package com.antwerkz.codegen.maven.gizmo;
+package com.antwerkz.codegen.gizmo;
 
 import com.antwerkz.codegen.maven.Generator;
 import io.quarkus.gizmo.ClassCreator;

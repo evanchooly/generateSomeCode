@@ -17,6 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
+        <bytebuddy.version>1.12.17</bytebuddy.version>
         <gizmo.version>1.2.0.Final</gizmo.version>
         <javapoet.version>1.13.0</javapoet.version>
         <maven.version>3.8.6</maven.version>
@@ -90,8 +91,6 @@
 
     <modules>
         <module>plugin</module>
-        <module>roaster</module>
-        <module>javapoet</module>
-        <module>gizmo</module>
+        <module>test</module>
     </modules>
 </project>

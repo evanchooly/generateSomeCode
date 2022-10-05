@@ -94,5 +94,10 @@
             <artifactId>gizmo</artifactId>
             <version>${gizmo.version}</version>
         </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.12.17</version>
+        </dependency>
     </dependencies>
 </project>

@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>javapoet</artifactId>
+    <artifactId>test</artifactId>
 
     <build>
         <plugins>
@@ -26,7 +26,10 @@
                         </goals>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <generator>javapoet</generator>
+<!--                            <generator>javapoet</generator>-->
+<!--                            <generator>roaster</generator>-->
+<!--                            <generator>gizmo</generator>-->
+                            <generator>bytebuddy</generator>
                         </configuration>
                     </execution>
                 </executions>
