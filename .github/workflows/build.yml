@@ -8,7 +8,7 @@ jobs:
   Build:
     strategy:
       matrix:
-        generator: [ roaster, javapoet, gizmo ]
+        generator: [ roaster, javapoet, gizmo, asm ]
     uses: evanchooly/workflows/.github/workflows/build.yml@master
     with:
       java: 17

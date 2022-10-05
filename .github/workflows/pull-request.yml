@@ -9,7 +9,7 @@ jobs:
   Build:
     strategy:
       matrix:
-        generator: [ roaster, javapoet, gizmo ]
+        generator: [ roaster, javapoet, gizmo, asm ]
     uses: evanchooly/workflows/.github/workflows/pull-request.yml@master
     with:
       java: 17
