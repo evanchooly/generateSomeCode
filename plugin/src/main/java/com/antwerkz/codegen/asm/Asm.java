@@ -4,10 +4,8 @@ import com.antwerkz.codegen.maven.Generator;
 import org.apache.maven.project.MavenProject;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.RecordComponentVisitor;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,71 +33,25 @@ public class Asm implements Generator {
     @Override
     public void generate() {
         ClassWriter classWriter = new ClassWriter(COMPUTE_MAXS | COMPUTE_FRAMES);
-        FieldVisitor fieldVisitor;
-        RecordComponentVisitor recordComponentVisitor;
-        MethodVisitor methodVisitor;
-        AnnotationVisitor annotationVisitor;
 
         classWriter.visit(V17, ACC_PUBLIC | ACC_SUPER, "com/antwerkz/generated/HelloWorld", null, "java/lang/Object", null);
 
-        classWriter.visitSource("HelloWorld.java", null);
+        classWriter
+            .visitAnnotation("Ljdk/jfr/Enabled;", true)
+            .visitEnd();
 
-        annotationVisitor = classWriter.visitAnnotation("Ljdk/jfr/Enabled;", true);
-        annotationVisitor.visitEnd();
+        constructor(classWriter);
 
-        methodVisitor = classWriter.visitMethod(ACC_PUBLIC, "<init>", "()V", null, null);
-        methodVisitor.visitCode();
-        Label label0 = new Label();
-        methodVisitor.visitLabel(label0);
-        methodVisitor.visitLineNumber(12, label0);
-        methodVisitor.visitVarInsn(ALOAD, 0);
-        methodVisitor.visitMethodInsn(INVOKESPECIAL, "java/lang/Object", "<init>", "()V", false);
-        methodVisitor.visitInsn(RETURN);
-        Label label1 = new Label();
-        methodVisitor.visitLabel(label1);
-        methodVisitor.visitLocalVariable("this", "Lcom/antwerkz/generated/HelloWorld;", null, label0, label1, 0);
-        methodVisitor.visitMaxs(1, 1);
-        methodVisitor.visitEnd();
+        greet(classWriter);
 
-        methodVisitor = classWriter.visitMethod(ACC_PUBLIC, "greet", "()V", null, null);
-
-        annotationVisitor = methodVisitor.visitAnnotation("Ljdk/jfr/Name;", true);
-        annotationVisitor.visit("value", "Inigo Montoya");
-        annotationVisitor.visitEnd();
-
-        methodVisitor.visitCode();
-        label0 = new Label();
-        methodVisitor.visitLabel(label0);
-        methodVisitor.visitLineNumber(16, label0);
-        methodVisitor.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-        methodVisitor.visitVarInsn(ALOAD, 0);
-        methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "com/antwerkz/generated/HelloWorld", "greeting", "()Ljava/lang/String;", false);
-        methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
-        label1 = new Label();
-        methodVisitor.visitLabel(label1);
-        methodVisitor.visitLineNumber(17, label1);
-        methodVisitor.visitInsn(RETURN);
-        Label label2 = new Label();
-        methodVisitor.visitLabel(label2);
-        methodVisitor.visitLocalVariable("this", "Lcom/antwerkz/generated/HelloWorld;", null, label0, label2, 0);
-        methodVisitor.visitMaxs(2, 1);
-        methodVisitor.visitEnd();
-
-        methodVisitor = classWriter.visitMethod(ACC_PUBLIC, "greeting", "()Ljava/lang/String;", null, null);
-        methodVisitor.visitCode();
-        label0 = new Label();
-        methodVisitor.visitLabel(label0);
-        methodVisitor.visitLineNumber(20, label0);
-        methodVisitor.visitLdcInsn("Hello world!");
-        methodVisitor.visitInsn(ARETURN);
-        label1 = new Label();
-        methodVisitor.visitLabel(label1);
-        methodVisitor.visitLocalVariable("this", "Lcom/antwerkz/generated/HelloWorld;", null, label0, label1, 0);
-        methodVisitor.visitMaxs(1, 1);
-        methodVisitor.visitEnd();
+        greeting(classWriter);
 
         classWriter.visitEnd();
 
+        dumpClassFile(classWriter);
+    }
+
+    private void dumpClassFile(ClassWriter classWriter) {
         File file = new File(project.getBasedir(), "target/classes/com/antwerkz/generated/HelloWorld.class");
         file.getParentFile().mkdirs();
         try (var stream = new FileOutputStream(file)) {
@@ -107,5 +59,67 @@ public class Asm implements Generator {
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
+    }
+
+    private void constructor(ClassWriter classWriter) {
+        MethodVisitor mv = classWriter.visitMethod(ACC_PUBLIC, "<init>", "()V", null, null);
+        mv.visitCode();
+
+        Label label0 = new Label();
+        mv.visitLabel(label0);
+        mv.visitVarInsn(ALOAD, 0);
+        mv.visitMethodInsn(INVOKESPECIAL, "java/lang/Object", "<init>", "()V", false);
+        mv.visitInsn(RETURN);
+
+        Label label1 = new Label();
+        mv.visitLabel(label1);
+        mv.visitLocalVariable("this", "Lcom/antwerkz/generated/HelloWorld;", null, label0, label1, 0);
+        mv.visitMaxs(1, 1);
+        mv.visitEnd();
+    }
+
+    private void greet(ClassWriter classWriter) {
+        MethodVisitor mv = classWriter.visitMethod(ACC_PUBLIC, "greet", "()V", null, null);
+
+        AnnotationVisitor av = mv.visitAnnotation("Ljdk/jfr/Name;", true);
+        av.visit("value", "Inigo Montoya");
+        av.visitEnd();
+
+        mv.visitCode();
+
+        Label label0 = new Label();
+        mv.visitLabel(label0);
+        mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+        mv.visitVarInsn(ALOAD, 0);
+        mv.visitMethodInsn(INVOKEVIRTUAL, "com/antwerkz/generated/HelloWorld", "greeting", "()Ljava/lang/String;", false);
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+
+        Label label1 = new Label();
+        mv.visitLabel(label1);
+        mv.visitInsn(RETURN);
+
+        Label label2 = new Label();
+        mv.visitLabel(label2);
+
+        mv.visitLocalVariable("this", "Lcom/antwerkz/generated/HelloWorld;", null, label0, label2, 0);
+        mv.visitMaxs(2, 1);
+        mv.visitEnd();
+    }
+
+    private void greeting(ClassWriter classWriter) {
+        MethodVisitor mv = classWriter.visitMethod(ACC_PUBLIC, "greeting", "()Ljava/lang/String;", null, null);
+        mv.visitCode();
+
+        Label label0 = new Label();
+        mv.visitLabel(label0);
+        mv.visitLdcInsn("Hello world!");
+        mv.visitInsn(ARETURN);
+
+        Label label1 = new Label();
+        mv.visitLabel(label1);
+        mv.visitLocalVariable("this", "Lcom/antwerkz/generated/HelloWorld;", null, label0, label1, 0);
+
+        mv.visitMaxs(1, 1);
+        mv.visitEnd();
     }
 }
