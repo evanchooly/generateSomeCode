@@ -99,5 +99,10 @@
             <artifactId>byte-buddy</artifactId>
             <version>1.12.17</version>
         </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>9.3</version>
+        </dependency>
     </dependencies>
 </project>

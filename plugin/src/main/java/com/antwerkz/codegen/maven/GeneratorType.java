@@ -1,5 +1,6 @@
 package com.antwerkz.codegen.maven;
 
+import com.antwerkz.codegen.asm.Asm;
 import com.antwerkz.codegen.bytebuddy.ByteBuddyGenerator;
 import com.antwerkz.codegen.javapoet.Javapoet;
 import com.antwerkz.codegen.gizmo.Gizmo;
@@ -29,6 +30,12 @@ public enum GeneratorType {
         @Override
         public Generator create(MavenProject project) {
             return new ByteBuddyGenerator(project);
+        }
+    },
+    asm {
+        @Override
+        public Generator create(MavenProject project) {
+            return new Asm(project);
         }
     };
 
