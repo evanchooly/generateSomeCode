@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -52,7 +53,7 @@
 				<section>
 					This model would change frequently as the lawyers would update it.
 
-					<p class="fragment">The easiest solution was to generate the java from the UML.</p>
+					<p class="fragment">The easiest solution was to generate the Java from the UML.</p>
 					<p class="fragment">pre-Java EE 1.0 days.
 						<span class="fragment">ish.</span>
 						<span class="fragment">JSP 0.92.</span>
@@ -65,10 +66,10 @@
 				</section>
 				<section>
 					<p>This was its own version of hell.  <span class="fragment">But better than what came before.</span></p>
-					<p class="fragment">And it was terribly effective.</p>
-					<p class="fragment">Persistence bug fix across hundreds of entities with one commit.</p>
+					<p class="fragment">And it was very effective.</p>
+					<p class="fragment">We fixed a persistence bug across hundreds of entities with one commit.</p>
 					<p class="fragment">( Well, it was CVS so there were commits for each file involved.  ¯\_(ツ)_/¯ )</p>
-					<p class="fragment">In all, over 1500 Java files were managed this way.</p>
+					<p class="fragment">In all, over 1500 Java classes were managed this way.</p>
 				</section>
 				<section>
 					And I've been in love with codegen ever since.
@@ -90,17 +91,33 @@
 					<h2>Some Dangers</h2>
 					<ul>
 						<li class="fragment">Fragility is a legit risk</li>
-						<li class="fragment">The process can be complicated if you're not mindful.</li>
+						<li class="fragment">The process can become complicated if you're not mindful.</li>
 						<li class="fragment">You might end up with a low beer truck factor.</li>
 						<li class="fragment">For the polyglots:</li>
-						<li class="fragment">Onboarding a new language should be carefully considered</li>
-						<li class="fragment">Differing capabilities between languages might hamper API development</li>
+						<ul >
+							<li class="fragment">Onboarding a new language should be carefully considered</li>
+							<li class="fragment">Differing capabilities between languages might hamper API development</li>
+						</ul>
 					</ul>
 				</section>
-				<section>
+<!--
+				<section data-transition=fade>
 					<h2>Some Examples</h2>
 					<ul>
-						<li class="fragment">grpc</li>
+					</ul>
+					<p >&nbsp; </p>
+					<p >&nbsp; </p>
+					<p >&nbsp; </p>
+					<p >&nbsp; </p>
+					<p >&nbsp; </p>
+					<p >&nbsp; </p>
+				</section>
+-->
+				<section data-transition=none>
+					<h2>Some Examples</h2>
+					<ul>
+						<li class="fragment"><span class="fragment vanish">CORBA IDL</span><span class="fragment">grpc</span></li>
+						<li class="fragment">wsdl</li>
 						<li class="fragment">OpenAPI</li>
 						<li class="fragment">Lombok</li>
 						<li class="fragment">Jackson Afterburner ( jackson-modules-base )</li>

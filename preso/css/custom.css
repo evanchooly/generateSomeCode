@@ -1,0 +1,8 @@
+.reveal .slides section .fragment.vanish {
+	opacity: 1;
+	visibility: inherit;
+}
+
+.reveal .slides section .fragment.vanish.visible {
+  display: none
+}
