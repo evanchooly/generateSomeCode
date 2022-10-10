@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Generate You Some Code</h2>
+					<h2>for Great Good</h2>
+					<p>Justin Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Red Hat</p>
+					<p>@evanchooly</p>
+				</section>
+				<section>
+					<img src="images/Learn You a Haskell.png">
+				</section>
+				<section>
+					<h3>Code generation gets a bad rap.  Why?</h3>
+					<ul>
+						<li class="fragment">Clunky to work with</li>
+						<li class="fragment">Hard to update</li>
+						<li class="fragment">Generates terrible code</li>
+					</ul>
+				</section>
+				<section>
+					Why do I love it?  A little history.
+
+					<p>
+						<span class="fragment">It was the early 2000s.</span>
+						<span class="fragment">We'd just conquered Y2K.</span>
+						<span class="fragment">Working a financial systems company.</span>
+					</p>
+					<p class="fragment">The business model contained state and federal regulations for banking and loans.</p>
+					<p class="fragment">In Rational Rose.</p>
+					<p class="fragment">There were hundreds of entities.</p>
+
+				</section>
+				<section>
+					<img src="images/always_sunny_conspiracy_meme.webp">
+				</section>
+				<section>
+					This model would change frequently as the lawyers would update it.
+
+					<p class="fragment">The easiest solution was to generate the java from the UML.</p>
+					<p class="fragment">pre-Java EE 1.0 days.
+						<span class="fragment">ish.</span>
+						<span class="fragment">JSP 0.92.</span>
+						<span class="fragment">ish</span></span>
+					</p>
+					<p class="fragment">Enter BOB:  Business Object Builder</p>
+					<p class="fragment"><b>hundreds</b> of code snippets each in their own file</p>
+					<p class="fragment">So I wrote it. <span class="fragment">in XSLT.</span> </p>
+					<p class="fragment">IT WAS 2001. <span class="fragment">Stop judging me.</span> </p>
+				</section>
+				<section>
+					<p>This was its own version of hell.  <span class="fragment">But better than what came before.</span></p>
+					<p class="fragment">And it was terribly effective.</p>
+					<p class="fragment">Persistence bug fix across hundreds of entities with one commit.</p>
+					<p class="fragment">( Well, it was CVS so there were commits for each file involved.  ¯\_(ツ)_/¯ )</p>
+					<p class="fragment">In all, over 1500 Java files were managed this way.</p>
+				</section>
+				<section>
+					And I've been in love with codegen ever since.
+				</section>
+				<section>
+					<h2>Some Benefits</h2>
+					<ul>
+						<li class="fragment">Consistent method definitions.</li>
+						<ul>
+							<li class="fragment">Method and parameter naming</li>
+							<li class="fragment">Method and parameter ordering</li>
+							<li class="fragment">Documentation</li>
+						</ul>
+						<li class="fragment">Multiple language support</li>
+						<li class="fragment">Adding a new language becomes "trivial."</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Some Dangers</h2>
+					<ul>
+						<li class="fragment">Fragility is a legit risk</li>
+						<li class="fragment">The process can be complicated if you're not mindful.</li>
+						<li class="fragment">You might end up with a low beer truck factor.</li>
+						<li class="fragment">For the polyglots:</li>
+						<li class="fragment">Onboarding a new language should be carefully considered</li>
+						<li class="fragment">Differing capabilities between languages might hamper API development</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Some Examples</h2>
+					<ul>
+						<li class="fragment">grpc</li>
+						<li class="fragment">OpenAPI</li>
+						<li class="fragment">Lombok</li>
+						<li class="fragment">Jackson Afterburner ( jackson-modules-base )</li>
+						<li class="fragment">I loved it so much I added it Morphia (https://morphiaorg.dev)</li>
+						<li class="fragment">( I know it's not the prettiest website. )</li>
+						<li class="fragment">Quarkus.io</li>
+					</ul>
+				</section>
+				<section>
+					<h1>CODE!</h1>
+				</section>
+				<section>
+					<h1>Resources</h1>
+					<p>https://github.com/forge/roaster</p>
+					<p>https://github.com/square/javapoet</p>
+					<p>https://github.com/quarkusio/gizmo</p>
+					<p>https://asm.ow2.io</p>
+				</section>
+				<section>
+					<h2>Generate You Some Code</h2>
+					<h2>for Great Good</h2>
+					<p>Justin Lee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Red Hat</p>
+					<p>@evanchooly</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
