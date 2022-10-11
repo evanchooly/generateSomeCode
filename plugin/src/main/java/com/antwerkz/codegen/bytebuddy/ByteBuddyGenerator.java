@@ -78,6 +78,13 @@ public class ByteBuddyGenerator implements Generator {
         }
     }
 
+    private static class FunctionalInterfaceAnnotation implements FunctionalInterface {
+        @Override
+        public Class<? extends Annotation> annotationType() {
+            return FunctionalInterface.class;
+        }
+    }
+
     private static class NameAnnotation implements Name {
         @Override
         public Class<? extends Annotation> annotationType() {
@@ -87,13 +94,6 @@ public class ByteBuddyGenerator implements Generator {
         @Override
         public String value() {
             return "Inigo Montoya";
-        }
-    }
-
-    private static class FunctionalInterfaceAnnotation implements FunctionalInterface {
-        @Override
-        public Class<? extends Annotation> annotationType() {
-            return FunctionalInterface.class;
         }
     }
 }
