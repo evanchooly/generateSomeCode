@@ -13,6 +13,9 @@
 
     <artifactId>test</artifactId>
 
+    <properties>
+        <generator>javapoet</generator>
+    </properties>
     <build>
         <plugins>
             <plugin>
