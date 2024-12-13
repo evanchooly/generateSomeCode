@@ -21,7 +21,7 @@
         <gizmo.version>1.8.0</gizmo.version>
         <javapoet.version>1.13.0</javapoet.version>
         <maven.version>3.9.9</maven.version>
-        <roaster.version>2.30.0.Final</roaster.version>
+        <roaster.version>2.30.1.Final</roaster.version>
     </properties>
 
     <dependencyManagement>
