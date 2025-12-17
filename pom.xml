@@ -20,7 +20,7 @@
         <bytebuddy.version>1.12.17</bytebuddy.version>
         <gizmo.version>1.9.0</gizmo.version>
         <javapoet.version>1.13.0</javapoet.version>
-        <maven.version>3.9.11</maven.version>
+        <maven.version>3.9.12</maven.version>
         <roaster.version>2.30.3.Final</roaster.version>
     </properties>
 
